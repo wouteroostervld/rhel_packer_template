@@ -1,23 +1,19 @@
 {
 	"variables": {
-		"vm_name": "rhel-7.2-vbox",
+		"vm_name": "rhel-7.4-kvm",
 		"iso_url": "{{env `ISO_URL`}}",
-		"iso_sha256": "03f3a0291634335f6995534d829bd21ffaa0d000004dfeb1b2fb81052d64a4d5"
+		"sa_username": "{{env `SUB_USERNAME`}}",
+		"sa_password": "{{env `SUB_PASSWORD`}}",
+		"iso_sha256": "431a58c8c0351803a608ffa56948c5a7861876f78ccbe784724dd8c987ff7000"
 	},
 
 	"builders": [{
-		"type": "virtualbox-iso",
-		"guest_os_type": "RedHat_64",
+		"type": "qemu",
 		"vm_name": "{{user `vm_name`}}",
-		"disk_size": "8192",
-		"vboxmanage": [
-			["modifyvm", "{{.Name}}", "--memory", "1024"],
-			["modifyvm", "{{.Name}}", "--cpus", "2"],
-			["modifyvm", "{{.Name}}", "--ioapic", "on"],
-			["modifyvm", "{{.Name}}", "--pae", "on"],
-			["modifyvm", "{{.Name}}", "--rtcuseutc", "on"],
-			["modifyvm", "{{.Name}}", "--bioslogodisplaytime", "1"]
-		],
+		"disk_size": "10000",
+		"format": "qcow2",
+		"headless": false,
+		"accelerator": "kvm",
 		"iso_checksum_type": "sha256",
 		"iso_url": "{{user `iso_url`}}",
 		"iso_checksum": "{{user `iso_sha256`}}",
@@ -25,12 +21,13 @@
 		"ssh_wait_timeout": "20m",
 		"ssh_username": "vagrant",
 		"ssh_password": "vagrant",
-		"shutdown_command": "echo 'vagrant'|sudo -S /sbin/halt -h -p",
 		"boot_wait": "5s",
+		"net_device": "virtio-net",
+		"disk_interface": "virtio",
 		"boot_command": [
 			"<esc><wait>",
 			"vmlinuz initrd=initrd.img net.ifnames=0 biosdevname=0 ",
-			"ks=http://{{.HTTPIP}}:{{.HTTPPort}}/vbox-ks.cfg",
+			"ks=http://{{.HTTPIP}}:{{.HTTPPort}}/kvm-ks.cfg",
 			"<enter>"
 		]
 	}],
@@ -38,10 +35,16 @@
 	"provisioners": [{
 		"type": "shell",
 		"execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+		"environment_vars" : [
+			"SUB_USERNAME={{user `sub_username`}}",
+			"SUB_PASSWORD={{user `sub_password`}}"
+		],
 		"scripts": [
+			"scripts/register.sh",
+			"scripts/update.sh",
 			"scripts/vagrant.sh",
 			"scripts/sshd.sh",
-			"scripts/virtualbox.sh",
+			"scripts/unregister.sh",
 			"scripts/cleanup.sh"
 		]
 	}],
@@ -51,4 +54,6 @@
 		"output": "{{user `vm_name`}}.box",
 		"keep_input_artifact": true
 	}]
+
+
 }

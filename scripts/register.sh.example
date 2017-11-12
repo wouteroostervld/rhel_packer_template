@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+subscription-manager register --username willem@example.org --password 'XXXXXXXXXX' --auto-attach
