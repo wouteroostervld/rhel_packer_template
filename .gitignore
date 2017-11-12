@@ -12,3 +12,5 @@ box/
 packer_cache/
 tmp/
 build.*
+# XXX - wart
+scripts/register.sh
