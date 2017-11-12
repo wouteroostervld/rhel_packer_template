@@ -16,6 +16,13 @@ Once you've obtained the ISOs, copy all of them into the same directory
 
 ## Configure
 
+Add your RedHat login  to your (bash)rc or (bash\_)profile:
+
+    export SUB_USERNAME=henk@example.com
+    export SUB_PASSWORD=XXXXX
+
+Be sure to restart your shell.
+
 Add your RedHat login to script/register.sh
 
     cp scripts/register.sh.example scripts/register.sh
