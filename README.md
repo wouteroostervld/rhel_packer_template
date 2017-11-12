@@ -9,7 +9,7 @@ x86\_64 that creates [Vagrant](http://vagrantup.com) boxes using [Packer](http:/
 
 ## Prerequisites
 
-To build all the boxes, you will need Packer and libvirt with kvm
+To build all the boxes, you will need Packer, Vagrant and libvirt with kvm
 installed. You will also need the RHEL7.4 64-bit DVD ISO from Red Hat.
 
 ## Configure
