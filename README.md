@@ -18,7 +18,6 @@ Once you've obtained the ISOs, copy all of them into the same directory
 
 Add your RedHat login to script/register.sh
 
-    cd scripts
     cp scripts/register.sh.example scripts/register.sh
     vi scripts/register.sh
 
