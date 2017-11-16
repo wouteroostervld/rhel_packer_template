@@ -21,23 +21,21 @@ Add your RedHat login  to your (bash)rc or (bash\_)profile:
 
 Be sure to restart your shell.
 
-Add your RedHat login to script/register.sh
-
-    cp scripts/register.sh.example scripts/register.sh
-    vi scripts/register.sh
-
 ## Creating the boxes
 
-* Export `ISO_URL` to the location of the installation ISO
-* Run packer with `rhel-7.4-kvm.json` template
-* Add the box to Vagrant
-* Build VMs
+* Set `ISO_URL` to the location of the installation ISO or put it in your ~/Downloads folder.
+* Do 'make' to build the box
+* Add the box to Vagrant using 'make install'.
 
 ### Example
 
-    export ISO_URL=file:///usr/local/isos/rhel-server-7.0-x86_64-dvd.iso
-    packer build rhel-7.0-kvm.json
-    vagrant box add rhel-7.0-kvm ./rhel-7.0-kvm.box
+    make install ISO_URL=file:///usr/local/isos/rhel-server-7.0-x86_64-dvd.iso
+
+### Using it in Vagrant
+
+* Install the vagrant-register plugin.
+* Copy the Vagrantfile\_example as Vagrantfile in your project.
+* Do 'vagrant up'.
 
 ### Credits
 
