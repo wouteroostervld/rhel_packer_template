@@ -12,6 +12,8 @@ x86\_64 that creates [Vagrant](http://vagrantup.com) boxes using [Packer](http:/
 To build all the boxes, you will need Packer, Vagrant and libvirt with kvm
 installed. You will also need the RHEL7.4 64-bit DVD ISO from Red Hat.
 
+Because the name packer clashes with cracklib please rename the actual packer to `packer.io`.
+
 ## Configure
 
 Add your RedHat login  to your (bash)rc or (bash\_)profile:
