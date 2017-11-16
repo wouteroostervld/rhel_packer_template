@@ -21,7 +21,7 @@ Add your RedHat login  to your (bash)rc or (bash\_)profile:
 
 Be sure to restart your shell.
 
-## Creating the boxes
+## Creating the box
 
 * Set `ISO_URL` to the location of the installation ISO or put it in your ~/Downloads folder.
 * Do 'make' to build the box
