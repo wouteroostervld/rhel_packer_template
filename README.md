@@ -1,4 +1,4 @@
-## Packer build for Red Hat Enterprise 7.4 x86\_64
+## Build of Red Hat Enterprise 7.4 x86\_64 for Vagrant with libvirt/kvm-provider
 
 rhel-packer-build is a buildscript for vagrantboxes for libvirt/kvm. Technology used packer, vagrant, gmake and sh.
 
