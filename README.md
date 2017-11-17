@@ -31,7 +31,7 @@ Be sure to restart your shell.
 
 ### Example
 
-    make install ISO_URL=file:///usr/local/isos/rhel-server-7.4-x86_64-dvd.iso
+    ISO_URL=file:///usr/local/isos/rhel-server-7.4-x86_64-dvd.iso make install
 
 ### Using it in Vagrant
 

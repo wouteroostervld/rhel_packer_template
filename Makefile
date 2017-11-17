@@ -1,4 +1,4 @@
-export ISO_URL=file://${HOME}/Downloads/rhel-server-7.4-x86_64-dvd.iso
+export ISO_URL?=file://${HOME}/Downloads/rhel-server-7.4-x86_64-dvd.iso
 
 rhel-7.4-kvm.box: rhel-7.4-kvm.json scripts/update.sh scripts/cleanup.sh scripts/register.sh scripts/register.sh.example scripts/sshd.sh scripts/unregister.sh scripts/update.sh scripts/vagrant.sh
 	packer.io build rhel-7.4-kvm.json
