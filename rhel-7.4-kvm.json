@@ -42,6 +42,7 @@
 		"scripts": [
 			"scripts/register.sh",
 			"scripts/update.sh",
+			"scripts/epel.sh",
 			"scripts/vagrant.sh",
 			"scripts/sshd.sh",
 			"scripts/unregister.sh",
