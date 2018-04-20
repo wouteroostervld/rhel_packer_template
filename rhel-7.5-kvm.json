@@ -1,10 +1,10 @@
 {
 	"variables": {
-		"vm_name": "rhel-7.4-kvm",
+		"vm_name": "rhel-7.5-kvm",
 		"iso_url": "{{env `ISO_URL`}}",
 		"sa_username": "{{env `SUB_USERNAME`}}",
 		"sa_password": "{{env `SUB_PASSWORD`}}",
-		"iso_sha256": "431a58c8c0351803a608ffa56948c5a7861876f78ccbe784724dd8c987ff7000"
+		"iso_sha256": "d0dd6ae5e001fb050dafefdfd871e7e648b147fb2d35f0e106e0b34a0163e8f5"
 	},
 
 	"builders": [{
@@ -24,6 +24,7 @@
 		"boot_wait": "5s",
 		"net_device": "virtio-net",
 		"disk_interface": "virtio",
+		"shutdown_command": "sudo sync; sleep 10; sudo /usr/sbin/shutdown -P now; sleep 120;",
 		"boot_command": [
 			"<esc><wait>",
 			"vmlinuz initrd=initrd.img net.ifnames=0 biosdevname=0 ",
