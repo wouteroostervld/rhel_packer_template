@@ -10,8 +10,8 @@ scripts/register.sh:
 	@printf '#!/usr/bin/env bash\nsubscription-manager register --username %s --password %s --auto-attach' "${SUB_USERNAME}" "${SUB_PASSWORD}" >scripts/register.sh
 
 remove:
-	vagrant box remove -f rhel74 || true
-	sudo virsh vol-delete --pool default rhel74_vagrant_box_image_0.img || true
+	vagrant box remove -f rhel75 || true
+	sudo virsh vol-delete --pool default rhel75_vagrant_box_image_0.img || true
 	sudo virsh pool-refresh default
 
 install: rhel-7.5-kvm.box
