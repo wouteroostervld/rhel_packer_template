@@ -16,12 +16,7 @@ Because the name packer clashes with cracklib please rename the actual packer to
 
 ## Configure
 
-Add your RedHat login  to your (bash)rc or (bash\_)profile:
-
-    export SUB_USERNAME=henk@example.com
-    export SUB_PASSWORD=XXXXX
-
-Be sure to restart your shell.
+You need copy scripts/register.sh.example to scripts/register.sh and add your RedHat Login (where you should have some spare entitlements).
 
 ## Creating the box
 
