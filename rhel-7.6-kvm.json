@@ -1,10 +1,10 @@
 {
 	"variables": {
-		"vm_name": "rhel-7.5-kvm",
+		"vm_name": "rhel-7.6-kvm",
 		"iso_url": "{{env `ISO_URL`}}",
 		"sa_username": "{{env `SUB_USERNAME`}}",
 		"sa_password": "{{env `SUB_PASSWORD`}}",
-		"iso_sha256": "d0dd6ae5e001fb050dafefdfd871e7e648b147fb2d35f0e106e0b34a0163e8f5"
+		"iso_sha256": "60a0be5aeed1f08f2bb7599a578c89ec134b4016cd62a8604b29f15d543a469c"
 	},
 
 	"builders": [{

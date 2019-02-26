@@ -1,9 +1,9 @@
-export ISO_URL?=file://${HOME}/Downloads/rhel-server-7.5-x86_64-dvd.iso
+export ISO_URL?=file://${HOME}/Downloads/rhel-server-7.6-x86_64-dvd.iso
 
 .PHONY: remove install reinstall clean
 
-rhel-7.5-kvm.box: rhel-7.5-kvm.json scripts/update.sh scripts/cleanup.sh scripts/register.sh scripts/register.sh.example scripts/sshd.sh scripts/unregister.sh scripts/update.sh scripts/vagrant.sh
-	packer.io build rhel-7.5-kvm.json
+rhel-7.6-kvm.box: rhel-7.6-kvm.json scripts/update.sh scripts/cleanup.sh scripts/register.sh scripts/register.sh.example scripts/sshd.sh scripts/unregister.sh scripts/update.sh scripts/vagrant.sh
+	packer.io build rhel-7.6-kvm.json
 
 scripts/register.sh:
 	@echo creating scripts/register.sh
@@ -14,8 +14,8 @@ remove:
 	sudo virsh vol-delete --pool default rhel75_vagrant_box_image_0.img || true
 	sudo virsh pool-refresh default
 
-install: rhel-7.5-kvm.box
-	vagrant box add rhel-7.5-kvm.box --name rhel75
+install: rhel-7.6-kvm.box
+	vagrant box add rhel-7.6-kvm.box --name rhel76
 
 reinstall: remove install
 
